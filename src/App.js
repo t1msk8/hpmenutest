@@ -342,7 +342,7 @@ function App() {
               <Title
                 key={i}
                 ref={navsRef.current[i]}
-                sx={{ py: 2, fontSize: "30px", cursor: "pointer" }}
+                sx={{ py: 1, fontSize: "22px", cursor: "pointer" }}
                 onClick={(e) => {
                   e.preventDefault();
                   handleScroll(i);
