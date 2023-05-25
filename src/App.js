@@ -188,8 +188,7 @@ function App() {
       allowScroll();
     }
 
-   
-    window.scrollTo(0, scrollContentPos)
+    window.scrollTo(0, scrollContentPos);
     setOpen(!isOpen);
   };
 
@@ -425,7 +424,9 @@ function App() {
                         <PositionName
                           sx={{ textAlign: "left", fontSize: "18px" }}
                         >
-                          {position.name}
+                          <div
+                            dangerouslySetInnerHTML={{ __html: position.name }}
+                          />
                         </PositionName>
                         <PositionPrice sx={{ fontSize: "18px" }}>
                           {position.price}
