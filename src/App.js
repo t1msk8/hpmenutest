@@ -131,7 +131,8 @@ function LoadScreen() {
       <PerspectiveCamera
         makeDefault
         fov={50}
-        position={isDesktop ? [0, 18, 4] : [0, 14, 22]}
+        position={isDesktop ? [0, 18, 4] : [-2, 10, 24]}
+        // position={isDesktop ? [0, 18, 4] : [-2, 14, 22]}
       />
 
       <color args={[0, 0, 0]} attach="background" />
