@@ -11,9 +11,6 @@ export const Ground = () => {
     process.env.PUBLIC_URL + "textures/terrain-grey.jpg"
   ]);
 
-// const logo =  useGLTF("./logo/hookaRed.glb");
-// const { scene } = useGLTF("./logo/logoBig.glb")
-
 const { scene } = useGLTF("./logo/hookaRED.glb")
   useEffect(() => {
     [roughness, normal].forEach((t) => {
@@ -43,7 +40,6 @@ const { scene } = useGLTF("./logo/hookaRED.glb")
 
 <primitive
         object={scene}
-        // rotation={[-5, 0, 10]}
         position={[0, 0, 3]}
         rotation={[-4.8, 0, 0]}
       />

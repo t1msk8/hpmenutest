@@ -7,25 +7,17 @@ import React, {
   createRef,
 } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Loader, Boxes, Ground, Navbar, Hero } from "./components";
+import { Ground } from "./components";
 import Hamburger from "hamburger-react";
 import {
   Button,
   Box,
-  Typography,
-  Container,
   Grid,
   ImageList,
   ImageListItem,
   AppBar,
 } from "@mui/material";
 import "./App.css";
-import {
-  EffectComposer,
-  Bloom,
-  ChromaticAberration,
-} from "@react-three/postprocessing";
-import { BlendFunction } from "postprocessing";
 import {
   CubeCamera,
   Environment,
@@ -43,10 +35,7 @@ import {
   alco,
   cocktails,
   navs,
-  scrollNav,
 } from "./assets/mock/menu";
-import bg from "./assets/brick_bg.jpg";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import useScrollBlock from "./hooks/useScrollBlock";
 
 const Title = styled("span")(({ theme }) => ({
@@ -131,8 +120,7 @@ function LoadScreen() {
       <PerspectiveCamera
         makeDefault
         fov={50}
-        position={isDesktop ? [0, 18, 4] : [-2, 3, 24]}
-        // position={isDesktop ? [0, 18, 4] : [-2, 14, 22]}
+        position={isDesktop ? [-1, 4, 17] : [-2, 3, 24]}
       />
 
       <color args={[0, 0, 0]} attach="background" />
@@ -269,7 +257,7 @@ function App() {
               variant="contained"
               sx={{
                 position: "absolute",
-                top: "85%",
+                top: "75%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
                 backgroundColor: "#e3000e",
@@ -291,7 +279,6 @@ function App() {
       ) : (
         <div style={{ position: "relative" }} ref={contentRef}>
           <AppBar
-            sticky
             sx={{
               backgroundColor: "black",
               height: "80px",
@@ -304,7 +291,7 @@ function App() {
               pr: 6,
             }}
           >
-            <Box sx={{}}>
+            <Box>
               <Hamburger
                 direction="right"
                 size={32}
@@ -365,7 +352,7 @@ function App() {
               }}
             >
               {nonAlcohol.map((elem, index) => (
-                <>
+                <React.Fragment key={index}>
                   <Title id={`#${elem.title}`} ref={nonAlcoholRefs[index]}>
                     {elem.title}
                   </Title>
@@ -377,12 +364,12 @@ function App() {
                       <PositionPrice>{position.price}</PositionPrice>
                     </PositionBox>
                   ))}
-                </>
+                </React.Fragment>
               ))}
               <Grid container ref={wineRef}>
                 <Title id="#Вино">Вино</Title>
                 {wine.map((elem, index) => (
-                  <Grid item xs={index === 2 ? 12 : 6}>
+                  <Grid item xs={index === 2 ? 12 : 6} key={index}>
                     <Title>{elem.title}</Title>
                     {elem.position.map((position) => (
                       <PositionBox sx={{ flexDirection: "column", py: 2 }}>
@@ -395,8 +382,8 @@ function App() {
                 ))}
               </Grid>
 
-              {whiskey.map((elem) => (
-                <>
+              {whiskey.map((elem, index) => (
+                <React.Fragment key={index}>
                   <Title id="#Виски" ref={whiskeyRef}>
                     {elem.title}
                   </Title>
@@ -407,7 +394,7 @@ function App() {
                       <PositionPrice>{position.price}</PositionPrice>
                     </PositionBox>
                   ))}
-                </>
+                </React.Fragment>
               ))}
 
               <ImageList
@@ -418,7 +405,7 @@ function App() {
                 ref={alcoRef}
               >
                 {alco.map((elem, index) => (
-                  <ImageListItem cols={1} rows={index === 0 ? 2 : 1}>
+                  <ImageListItem cols={1} rows={index === 0 ? 2 : 1} key={index}>
                     <Title>{elem.title}</Title>
                     {elem.position.map((position) => (
                       <PositionBox sx={{ py: "4px" }}>
@@ -438,8 +425,8 @@ function App() {
                 ))}
               </ImageList>
 
-              {cocktails.map((elem) => (
-                <>
+              {cocktails.map((elem, index) => (
+                <React.Fragment key={index}>
                   <Title
                     sx={{ mt: 4, mb: 1 }}
                     id="#Алкогольные коктейли"
@@ -456,7 +443,7 @@ function App() {
                       <PositionPrice>{position.price}</PositionPrice>
                     </PositionBox>
                   ))}
-                </>
+                </React.Fragment>
               ))}
             </Box>
 
