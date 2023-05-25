@@ -370,10 +370,10 @@ function App() {
                 <Title id="#Вино">Вино</Title>
                 {wine.map((elem, index) => (
                   <Grid item xs={index === 2 ? 12 : 6} key={index}>
-                    <Title>{elem.title}</Title>
+                    <Title sx={{fontSize: '30px'}}>{elem.title}</Title>
                     {elem.position.map((position) => (
                       <PositionBox sx={{ flexDirection: "column", py: 2 }}>
-                        <PositionName>{position.name}</PositionName>
+                        <PositionName sx={{fontWeight: 700, letterSpacing: '2px' }}>{position.name}</PositionName>
                         <PositionDesc>{position.desc}</PositionDesc>
                         <PositionPrice>{position.price}</PositionPrice>
                       </PositionBox>
@@ -384,12 +384,12 @@ function App() {
 
               {whiskey.map((elem, index) => (
                 <React.Fragment key={index}>
-                  <Title id="#Виски" ref={whiskeyRef}>
+                  <Title id="#Виски" ref={whiskeyRef} sx={{ fontSize: '30px'}}>
                     {elem.title}
                   </Title>
                   {elem.position.map((position) => (
                     <PositionBox sx={{ flexDirection: "column", py: 2 }}>
-                      <PositionName>{position.name}</PositionName>
+                      <PositionName sx={{fontWeight: 700, letterSpacing: '2px' }}>{position.name}</PositionName>
                       <PositionPrice>{position.desc}</PositionPrice>
                       <PositionPrice>{position.price}</PositionPrice>
                     </PositionBox>
@@ -428,15 +428,15 @@ function App() {
               {cocktails.map((elem, index) => (
                 <React.Fragment key={index}>
                   <Title
-                    sx={{ mt: 4, mb: 1 }}
+                    sx={{ mt: 4, mb: 1, fontSize: '30px' }}
                     id="#Алкогольные коктейли"
-                    ref={cocktailsRef}
+                    ref={cocktailsRef}                   
                   >
                     {elem.title}
                   </Title>
                   {elem.position.map((position, index) => (
                     <PositionBox sx={{ flexDirection: "column", py: 1 }} key={index}>
-                      <PositionName>{position.name}</PositionName>
+                      <PositionName sx={{fontWeight: 700, letterSpacing: '2px' }}>{position.name}</PositionName>
                       <PositionPrice sx={{ fontSize: "16px" }}>
                         {position.desc}
                       </PositionPrice>
