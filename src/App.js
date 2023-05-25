@@ -340,7 +340,7 @@ function App() {
             ))}
           </Box>
 
-          <Parallax strength={isDesktop ? 500 : 500}>
+          <Parallax strength={isDesktop ? 2000 : 500}>
             <Box
               sx={{
                 overflow: isOpen ? "hidden" : "hidden",
