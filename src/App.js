@@ -126,10 +126,10 @@ function LoadScreen() {
       <color args={[0, 0, 0]} attach="background" />
 
       <CubeCamera resolution={256} frames={Infinity}>
-        {(texture) => (
-          <>
+        {(texture, index) => (
+          <React.Fragment key={index}>
             <Environment map={texture} />
-          </>
+          </React.Fragment>
         )}
       </CubeCamera>
 
@@ -434,8 +434,8 @@ function App() {
                   >
                     {elem.title}
                   </Title>
-                  {elem.position.map((position) => (
-                    <PositionBox sx={{ flexDirection: "column", py: 1 }}>
+                  {elem.position.map((position, index) => (
+                    <PositionBox sx={{ flexDirection: "column", py: 1 }} key={index}>
                       <PositionName>{position.name}</PositionName>
                       <PositionPrice sx={{ fontSize: "16px" }}>
                         {position.desc}
