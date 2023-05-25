@@ -24,8 +24,8 @@ const { scene } = useGLTF("./logo/hookaRED.glb")
     });
 
     [black].forEach((t) => {
-      t.repeat.set(5, 5);
-      t.center.set(0.5, 0.5);
+      t.repeat.set(1, 1);
+      
     });
   }, [roughness, normal, black]);
 
