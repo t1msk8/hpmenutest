@@ -131,7 +131,7 @@ function LoadScreen() {
       <PerspectiveCamera
         makeDefault
         fov={50}
-        position={isDesktop ? [0, 12, 3] : [0, 14, 14]}
+        position={isDesktop ? [0, 18, 4] : [0, 14, 22]}
       />
 
       <color args={[0, 0, 0]} attach="background" />
@@ -148,9 +148,9 @@ function LoadScreen() {
         <spotLight
           color={new THREE.Color("#ffffff")}
           intensity={count > 2 ? 0.6 : intensity}
-          angle={0.6}
+          angle={1}
           penumbra={0.5}
-          position={[-20, 15, -15]}
+          position={[-15, 10, 10]}
           castShadow
           shadow-bias={-0.0001}
         />
@@ -160,9 +160,9 @@ function LoadScreen() {
         <spotLight
           color={new THREE.Color("#ffffff")}
           intensity={count > 2 ? 0.6 : intensity}
-          angle={0.6}
+          angle={1}
           penumbra={0.5}
-          position={[20, 15, -15]}
+          position={[15, 10, 10]}
           castShadow
           shadow-bias={-0.0001}
         />

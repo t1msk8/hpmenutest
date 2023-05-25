@@ -5,13 +5,16 @@ import { RepeatWrapping, TextureLoader } from "three";
 import * as THREE from "three";
 
 export const Ground = () => {
-  const [roughness, normal] = useLoader(TextureLoader, [
+  const [roughness, normal, black] = useLoader(TextureLoader, [
     process.env.PUBLIC_URL + "textures/terrain-roughness.jpg",
-    process.env.PUBLIC_URL + "textures/terrain-normal.jpg"
+    process.env.PUBLIC_URL + "textures/terrain-normal.jpg",
+    process.env.PUBLIC_URL + "textures/terrain-grey.jpg"
   ]);
 
 // const logo =  useGLTF("./logo/hookaRed.glb");
-const { scene } = useGLTF("./logo/logoBig.glb")
+// const { scene } = useGLTF("./logo/logoBig.glb")
+
+const { scene } = useGLTF("./logo/hookaRED.glb")
   useEffect(() => {
     [roughness, normal].forEach((t) => {
       t.wrapS = RepeatWrapping;
@@ -20,11 +23,11 @@ const { scene } = useGLTF("./logo/logoBig.glb")
       t.offset.set(0, 0);
     });
 
-    // [logo].forEach((t) => {
-    //   t.repeat.set(5, 5);
-    //   t.center.set(0.5, 0.5);
-    // });
-  }, [roughness, normal]);
+    [black].forEach((t) => {
+      t.repeat.set(5, 5);
+      t.center.set(0.5, 0.5);
+    });
+  }, [roughness, normal, black]);
 
   return (
     <mesh rotation-x={-Math.PI * 0.5}>
@@ -34,13 +37,15 @@ const { scene } = useGLTF("./logo/logoBig.glb")
         normalMap={normal}
         normalScale={[0.3, 0.3]}
         roughnessMap={roughness}
-        color={[0.08, 0.08, 0.08]}
-        // map={logo}
+        color={[0.5, 0.5, 0.5]}
+        map={black}
       />
 
 <primitive
         object={scene}
-   
+        // rotation={[-5, 0, 10]}
+        position={[0, 0, 3]}
+        rotation={[-4.8, 0, 0]}
       />
     </mesh>
   );
