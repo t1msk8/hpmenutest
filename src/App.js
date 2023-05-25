@@ -131,7 +131,7 @@ function LoadScreen() {
       <PerspectiveCamera
         makeDefault
         fov={50}
-        position={isDesktop ? [0, 18, 4] : [-2, 10, 24]}
+        position={isDesktop ? [0, 18, 4] : [-2, 3, 24]}
         // position={isDesktop ? [0, 18, 4] : [-2, 14, 22]}
       />
 
