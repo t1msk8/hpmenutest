@@ -367,7 +367,7 @@ function App() {
                 </React.Fragment>
               ))}
               <Grid container ref={wineRef}>
-                <Title sx={{fontSize: '25px'}} id="#Вино">Вино</Title>
+                <Title sx={{fontSize: '30px'}} id="#Вино">Вино</Title>
                 {wine.map((elem, index) => (
                   <Grid item xs={index === 2 ? 12 : 6} key={index}>
                     <Title sx={{fontSize: '25px'}}>{elem.title}</Title>
